@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="usersActivity"
+            type="al.logic.android.kotlinapplication.viewmodel.UserActivityViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:indicatorColor="@color/colorPrimaryDark"
+            android:layout_centerInParent="true"
+            android:layout_margin="4dp"
+            app:visibility="@{usersActivity.usersProgress}"
+           />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list_people"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:scrollbars="vertical"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:visibility="@{usersActivity.usersRecycler}"
+                tools:listitem="@layout/users_list" />
+
+        <TextView
+            android:id="@+id/msg_error"
+            style="@style/TextAppearance.AppCompat.Subhead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/error_btn_retry"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            app:visibility="@{usersActivity.errorMessage}"
+            android:text="@string/error_msg"/>
+
+
+        <Button
+            android:id="@+id/error_btn_retry"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/activity_margin_content"
+            android:layout_centerInParent="true"
+            app:visibility="@{usersActivity.retryButton}"
+            android:onClick="@{usersActivity::onRetryClick}"
+            android:text="Retry"
+            android:textColor="@color/colorPrimary"/>
+
+
+    </RelativeLayout>
+
+</layout>

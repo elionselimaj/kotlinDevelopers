@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="users"
+            type="al.logic.android.kotlinapplication.viewmodel.UsersEntity"/>
+    </data>
+
+
+    <RelativeLayout
+        android:id="@+id/item_people"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:onClick="@{users::onItemClick}"
+        android:padding="@dimen/spacing_large">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/image_people"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            tools:imageUrl="@{users.avatar}"
+            />
+
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/image_people"
+            android:layout_marginStart="@dimen/spacing_large"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:layout_toEndOf="@+id/image_people"
+            android:textColor="@android:color/primary_text_light"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="@{users.username}"
+            tools:text="elionselimaj"/>
+
+        <TextView
+            android:id="@+id/registration_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/user_name"
+            android:textColor="@android:color/secondary_text_light"
+            android:layout_below="@id/user_name"
+            android:text="@{users.registrationDate}"
+            android:textSize="14sp"
+            tools:text="01-07-1993"/>
+
+
+    </RelativeLayout>
+
+
+</layout>
