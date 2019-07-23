@@ -24,8 +24,8 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public Observable<UsersResponse> fetchKotlinUsers(String q,int page, int per_page) {
-        return apiService.fetchKotlinUsers(q,page,per_page);
+    public Observable<UsersResponse> fetchKotlinUsers(String language,int page, int perPage) {
+        return apiService.fetchKotlinUsers(language,page,perPage);
     }
 
     @Override
