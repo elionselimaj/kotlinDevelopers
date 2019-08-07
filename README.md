@@ -1,4 +1,4 @@
-#### kotlinUsers
+#### kotlinDevelopers
 Android MVVM with Dagger 2, Retrofit, RxJava, Architecture Components
 
 When opening the app, show a list of all Kotlin developers.
